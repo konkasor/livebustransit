@@ -32206,10 +32206,13 @@ class Client extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
 
 		this.startTrackingLocation = this.startTrackingLocation.bind(this);
 		this.onLocationFound = this.onLocationFound.bind(this);
+		this.onLocationError = this.onLocationError.bind(this);
 		this.zoomHandling = this.zoomHandling.bind(this);
 	}
 
 	onLocationFound(e) {
+
+		alert("Found you location!");
 
 		this.state.mapMarker.setLatLng(e.latlng);
 
@@ -32217,7 +32220,8 @@ class Client extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
 		let distance = (this.state.map.distance(e.latlng, __WEBPACK_IMPORTED_MODULE_1_leaflet___default.a.latLng(46.730740, 23.486197)) + this.state.map.distance(__WEBPACK_IMPORTED_MODULE_1_leaflet___default.a.latLng(46.730740, 23.486197), __WEBPACK_IMPORTED_MODULE_1_leaflet___default.a.latLng(46.732914, 23.483642))) / 1000;
 		let time = Math.floor(distance / this.state.humanWalkingSpeed * 60);
 
-		console.log(time);
+		console.log(e.latlng);
+
 		//this.state.map.setView(this.state.mapMarker.getLatLng(), this.state.map.getZoom()); 
 	}
 
@@ -32267,7 +32271,7 @@ class Client extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
 			map.on('locationfound', e => {
 				const radius = e.accuracy / 2,
 				      userIcon = __WEBPACK_IMPORTED_MODULE_1_leaflet___default.a.icon({
-					iconUrl: "public/img/client2.png",
+					iconUrl: "/public/img/client2.png",
 					iconSize: [32, 32],
 					iconAnchor: [16, 32],
 					popupAnchor: [0, -20]
