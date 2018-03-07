@@ -1,35 +1,41 @@
 /* line 2, ../sass/propellerPage.scss */
+body {
+  padding: 0;
+}
+
+/* line 6, ../sass/propellerPage.scss */
 nav {
   background-color: rgba(0, 0, 0, 0.75) !important;
 }
-/* line 4, ../sass/propellerPage.scss */
+/* line 8, ../sass/propellerPage.scss */
 nav .navbar-brand {
   border-radius: 4px;
 }
 
-/* line 9, ../sass/propellerPage.scss */
+/* line 13, ../sass/propellerPage.scss */
+html, body, #map {
+  height: 100%;
+  width: 100vw;
+}
+
+/* line 19, ../sass/propellerPage.scss */
 #pmd-main {
   position: absolute;
   width: 100%;
   height: 100%;
   padding: 0px;
 }
-/* line 15, ../sass/propellerPage.scss */
+/* line 25, ../sass/propellerPage.scss */
 #pmd-main .pmd-sidebar {
   top: 57px;
   padding: 0px;
 }
-/* line 21, ../sass/propellerPage.scss */
+/* line 31, ../sass/propellerPage.scss */
 #pmd-main .pmd-content .row {
   margin-top: 15px;
 }
-/* line 26, ../sass/propellerPage.scss */
-#pmd-main #map {
-  height: 100%;
-  width: 100vw;
-}
 
-/* line 33, ../sass/propellerPage.scss */
+/* line 38, ../sass/propellerPage.scss */
 .bus-icon {
   width: 50px !important;
   height: 30px !important;
@@ -38,7 +44,7 @@ nav .navbar-brand {
   border-radius: 14px;
 }
 
-/* line 43, ../sass/propellerPage.scss */
+/* line 48, ../sass/propellerPage.scss */
 .bus-icon:after {
   position: relative;
   top: 5px;
@@ -47,7 +53,7 @@ nav .navbar-brand {
 }
 
 @media screen and (min-width: 768px) {
-  /* line 54, ../sass/propellerPage.scss */
+  /* line 59, ../sass/propellerPage.scss */
   #pmd-main .pmd-sidebar {
     top: 65px;
   }
