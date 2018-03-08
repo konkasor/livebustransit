@@ -5,7 +5,7 @@ const express = require('express'),
 	url = require('url'),
 	mySql = require('mysql'),
 	io = require('socket.io')(server),
-	port = process.env.PORT || 5000;
+	port = process.env.PORT || 3000;
 
 var con = mySql.createConnection({
   host: "sulnwdk5uwjw1r2k.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
