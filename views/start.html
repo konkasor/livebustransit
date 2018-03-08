@@ -138,12 +138,21 @@
 
 		<script type="text/javascript" src="/public/js/transformedApps/app1/indexAppTransformed.js"></script>
 
+		<script type="text/javascript" src="/scripts/socket.io-client/dist/socket.io.slim.js"></script>
+
 		<script>
-			/*
-			if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-				WebView.setWebContentsDebuggingEnabled(true);
-			}
-			*/
+			var socket = io('/');
+  			socket.on('news', function (data) {
+    			console.log(data);
+
+    			socket.emit('my other event', { my: 'data normal' });
+
+			});
+
+			socket.on('numar',function(data){
+      				console.log(data);
+      
+  			});
 		</script>
 
 	</body>

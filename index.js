@@ -1,10 +1,11 @@
 const express = require('express'),
 	app = express(),
+	server = require('http').Server(app),
 	fs = require('fs'),
 	url = require('url'),
 	mySql = require('mysql'),
-	port = process.env.PORT || 5000,
-	hostName = 'localhost';
+	io = require('socket.io')(server),
+	port = process.env.PORT || 5000;
 
 var con = mySql.createConnection({
   host: "sulnwdk5uwjw1r2k.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
@@ -34,4 +35,22 @@ app.get('/', (req, res) => {
 	
 });
 
-app.listen(port);
+let userSockets = io.of('/'), usersCount = 0;
+
+userSockets.on('connection', function (socket) {
+	console.log("Un fraier s-a conectat");
+
+  	socket.emit('news', { hello: 'world' });
+
+  	socket.on('my other event', function (data) {
+  		usersCount++;
+    	console.log(usersCount);
+    });
+
+    socket.on('disconnect', function(){
+    	usersCount--;
+    	console.log(usersCount);
+    });
+});
+
+server.listen(5000);
