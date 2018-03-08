@@ -1,10 +1,9 @@
 const express = require('express'),
 	app = express(),
-	server = require('http').Server(app),
 	fs = require('fs'),
 	url = require('url'),
 	mySql = require('mysql'),
-	io = require('socket.io')(server),
+	io = require('socket.io')(app),
 	port = process.env.PORT || 3000;
 
 var con = mySql.createConnection({
