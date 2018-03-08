@@ -1,10 +1,14 @@
 const express = require('express'),
 	app = express(),
+	server = require('http').Server(app),
 	fs = require('fs'),
 	url = require('url'),
 	mySql = require('mysql'),
-	io = require('socket.io')(app),
 	port = process.env.PORT || 3000;
+
+const io = require('socket.io')(server);
+
+server.listen(port);
 
 var con = mySql.createConnection({
   host: "sulnwdk5uwjw1r2k.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
@@ -51,5 +55,3 @@ userSockets.on('connection', function (socket) {
     	console.log(usersCount);
     });
 });
-
-server.listen(5000);
